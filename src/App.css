@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+.Main{
+  padding: 20px;;
+  background-color: goldenrod;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+.Button {
+  padding: 10px;
+  align-items: center;
+}
+.Table {
+  background-color: burlywood;
+  padding: 15px;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  
+}
