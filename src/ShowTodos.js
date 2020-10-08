@@ -1,5 +1,6 @@
 import React from 'react';
 import UpdateTodos from './UpdateTodos';
+import { Button } from 'antd';
 
 class ShowTodos extends React.Component {
   constructor(props) {
@@ -44,8 +45,8 @@ class ShowTodos extends React.Component {
     return this.state.todos.map((todo) => {
       return (<tr><td>{todo.message}</td>
         <td>{todo.time}</td>
-        <td><button onClick={() => this.updateTodo(todo.todo_id, todo.message, todo.time)}>update</button></td>
-        <td><button onClick={() => this.deleteTodo(todo.todo_id)}>Delete</button></td></tr>)
+        <td><Button onClick={() => this.updateTodo(todo.todo_id, todo.message, todo.time)} type = "primary">Update</Button></td>
+        <td><Button onClick={() => this.deleteTodo(todo.todo_id)} type = "ghost">Delete</Button></td></tr>)
     })
   }
 
@@ -75,7 +76,8 @@ class ShowTodos extends React.Component {
             {this.getTableData()}
           </tbody>
         </table >
-          <button onClick={this.fetchData} className="Button">Show Todos</button>
+          <Button onClick={this.fetchData}  type="primary">Show Todos</Button>
+          {/* <button className="Button"></button> */}
         </div>)
     }
     else {
@@ -83,7 +85,7 @@ class ShowTodos extends React.Component {
       return (
         <div className="Main">
           <h1>Your Personal Todos</h1>
-          <button onClick={this.fetchData}>Show Todos</button>
+          <Button onClick={this.fetchData} type = "primary">Show Todos</Button> 
           {/* <h2>{JSON.stringify(this.state.todos)}.</h2> */}
         </div>
       );

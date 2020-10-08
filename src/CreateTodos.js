@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import React from 'react';
 
 class CreateTodos extends React.Component {
@@ -49,7 +50,7 @@ class CreateTodos extends React.Component {
                     <h3>ceated</h3>
                     <h4>Time: {JSON.stringify(this.state.time)}</h4>
                     <h4>Message: {JSON.stringify(this.state.message)}</h4>
-                    <button onClick={ this.handleCreateClick }>Create Todos</button>
+                    <Button onClick={ this.handleCreateClick } type = "primary">Create Todos</Button>
                 </div>
             )
         }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 class UpdateTodos extends React.Component {
     constructor(props) {
         super(props);
@@ -56,7 +57,7 @@ class UpdateTodos extends React.Component {
                     <h3>Updated</h3>
                     <h4>Time: {JSON.stringify(this.state.time)}</h4>
                     <h4>Message: {JSON.stringify(this.state.message)}</h4>
-                    <button onClick={this.handleCreateClick}>Show Todos</button>
+                    <Button onClick={this.handleCreateClick} type = "primary">Show Todos</Button>
                 </div>
             )
         }
