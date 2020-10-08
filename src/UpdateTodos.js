@@ -24,7 +24,7 @@ class UpdateTodos extends React.Component {
         console.log('value  was submitted: ');
         console.log(this.state)
         event.preventDefault();
-        fetch(`http://localhost:5000/todo/${this.props.id}`, {
+        fetch(`https://guarded-taiga-87327.herokuapp.com/todo/${this.props.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

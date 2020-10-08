@@ -55,10 +55,10 @@ class CreateTodos extends React.Component {
         }
         else {
             return (
-                <div className = "After-creation">
+                <div className = "Creation">
                     <form onSubmit={this.handleSubmit}>
                     <h2>Create new todo</h2>
-                    <label>
+                    <label className = "Form">
                         Message:
                     <input type="text" value={this.state.message} onChange={this.handleChangeMessage} />
                     <br></br>

@@ -10,7 +10,7 @@ class ShowTodos extends React.Component {
   fetchData = () => {
     this.setState({ todos: 'Fetching', isFetchComplete: false });
     console.log('blahblah')
-    fetch('http://localhost:5000/todo')
+    fetch('https://guarded-taiga-87327.herokuapp.com/todo')
       .then(response => response.json())
       .then(data => { console.log(data); this.setState({ todos: data, isFetchComplete: true }) })
       .catch(err => { this.setState({ todos: 'Failed' }) });
@@ -27,7 +27,7 @@ class ShowTodos extends React.Component {
     console.log('Inside delete Component', arg);
     this.setState({deleteRequest: true, todoID: arg});
     console.log(this.state.todoID);
-    fetch(`http://localhost:5000/todo/${arg}`, {
+    fetch(`https://guarded-taiga-87327.herokuapp.com/todo/${arg}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
