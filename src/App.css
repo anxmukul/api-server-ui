@@ -44,7 +44,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 1vmin);
   color: black;
 }
 
@@ -61,17 +61,24 @@ table, th, td {
 }
 .Table {
   background-color: burlywood;
-  padding: 15px;
+  padding: 20px;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(8px + 1vmin);
+  
+}
+.After-creation{
+  background-color: lavender;
+  padding: 20px;
   min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  
-}
-.After-creation{
-  background-color: lavender;
 }
 .Createtodo{
 background-color: burlywood;
@@ -83,6 +90,16 @@ background-color: burlywood;
   background-color: darkgreen;
 }
 .Show-after-update{
+  background-color: peru;
+  padding: 15px;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+.Deletion {
   background-color: peru;
   padding: 15px;
   min-height: 20vh;

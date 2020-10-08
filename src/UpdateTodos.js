@@ -41,7 +41,7 @@ class UpdateTodos extends React.Component {
         console.log('Inside render of update todos')
         if (this.state.showTodo) {
             return (
-                <div className = "Show-after-update">
+                <div className = "Table">
                     <table>
                         <tr><td>{this.state.message}</td>
                             <td>{this.state.time}</td>
