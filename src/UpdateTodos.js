@@ -3,9 +3,9 @@ import { Button } from 'antd';
 class UpdateTodos extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { message: this.props.message, time: this.props.time, isUpdated: false, showTodo: false }
+        this.state = { message: this.props.message, title: this.props.title, isUpdated: false, showTodo: false }
         this.handleChangeMessage = this.handleChangeMessage.bind(this);
-        this.handleChangeTime = this.handleChangeTime.bind(this);
+        this.handleChangeTitle = this.handleChangeTitle.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChangeMessage(event) {
@@ -13,9 +13,9 @@ class UpdateTodos extends React.Component {
         this.setState({ message: event.target.value });
     }
 
-    handleChangeTime(event) {
+    handleChangeTitle(event) {
         console.log('sfdfsf')
-        this.setState({ time: event.target.value });
+        this.setState({ title: event.target.value });
 
     }
     handleCreateClick = () => {
@@ -30,7 +30,7 @@ class UpdateTodos extends React.Component {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ time: this.state.time, message: this.state.message }),
+            body: JSON.stringify({ title: this.state.title, message: this.state.message }),
         })
             .then(response => response.json())
             .then(data => {
@@ -44,8 +44,9 @@ class UpdateTodos extends React.Component {
             return (
                 <div className = "Table">
                     <table>
-                        <tr><td>{this.state.message}</td>
-                            <td>{this.state.time}</td>
+                        <tr>
+                        <td>{this.state.title}</td>
+                            <td>{this.state.message}</td>
                         </tr>
                     </table>
                 </div>
@@ -55,23 +56,23 @@ class UpdateTodos extends React.Component {
             return (
                 <div className="After-updation">
                     <h3>Updated</h3>
-                    <h4>Time: {JSON.stringify(this.state.time)}</h4>
+                    <h4>Title: {JSON.stringify(this.state.title)}</h4>
                     <h4>Message: {JSON.stringify(this.state.message)}</h4>
-                    <Button onClick={this.handleCreateClick} type = "primary">Show Todos</Button>
+                    <Button onClick={this.handleCreateClick} type = "primary">Show Notes</Button>
                 </div>
             )
         }
         return (
             <div className="Update">
-                <h3>Your todo id {this.props.id}</h3>
+                <h3>Your Notes id {this.props.id}</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <h2>Update todo</h2>
+                    <h2>Update Notes</h2>
                     <label>
+                    Title:
+                      <input type="text" value={this.state.title} onChange={this.handleChangeTitle}></input>
+                      <br></br>
                         Message:
-                    <input type="text" value={this.state.message} onChange={this.handleChangeMessage} />
-                        <br></br>
-                    Time:
-                      <input type="text" value={this.state.time} onChange={this.handleChangeTime}></input>
+                    <input type="text" value={this.state.message} onChange={this.handleChangeMessage} />                   
                     </label>
                     <br></br>
                     <input type="submit" value="Update" />

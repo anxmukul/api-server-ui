@@ -4,9 +4,9 @@ import React from 'react';
 class CreateTodos extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { message: '', time: '', isPosted: false };
+        this.state = { message: '', title: '', isPosted: false };
         this.handleChangeMessage = this.handleChangeMessage.bind(this);
-        this.handleChangeTime = this.handleChangeTime.bind(this);
+        this.handleChangeTitle = this.handleChangeTitle.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -14,8 +14,8 @@ class CreateTodos extends React.Component {
         this.setState({ message: event.target.value });
     }
 
-    handleChangeTime(event) {
-        this.setState({ time: event.target.value });
+    handleChangeTitle(event) {
+        this.setState({ title: event.target.value });
 
     }
 
@@ -29,7 +29,7 @@ class CreateTodos extends React.Component {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ time: this.state.time, message: this.state.message }),
+            body: JSON.stringify({ title: this.state.title, message: this.state.message }),
         })
             .then(response => response.json())
             .then(data => {
@@ -39,7 +39,7 @@ class CreateTodos extends React.Component {
     }
 
     handleCreateClick = () => {
-        this.setState({message: '', time: '', isPosted: false})
+        this.setState({message: '', title: '', isPosted: false})
     }
 
     render() {
@@ -47,10 +47,10 @@ class CreateTodos extends React.Component {
             console.log('again in render')
             return (
                 <div className = "After-creation">
-                    <h3>ceated</h3>
-                    <h4>Time: {JSON.stringify(this.state.time)}</h4>
+                    <h3>Created</h3>
+                    <h4>Title: {JSON.stringify(this.state.title)}</h4>
                     <h4>Message: {JSON.stringify(this.state.message)}</h4>
-                    <Button onClick={ this.handleCreateClick } type = "primary">Create Todos</Button>
+                    <Button onClick={ this.handleCreateClick } type = "primary">Create Notes</Button>
                 </div>
             )
         }
@@ -58,13 +58,13 @@ class CreateTodos extends React.Component {
             return (
                 <div className = "Creation">
                     <form onSubmit={this.handleSubmit}>
-                    <h2>Create new todo</h2>
+                    <h2>Create new Notes</h2>
                     <label className = "Form">
+                    Title:
+                      <input type="text" value={this.state.title} onChange={this.handleChangeTitle}></input>
+                      <br></br> 
                         Message:
                     <input type="text" value={this.state.message} onChange={this.handleChangeMessage} />
-                    <br></br>
-                    Time:
-                      <input type="text" value={this.state.time} onChange={this.handleChangeTime}></input>
                     </label>
                     <br></br>
                     <input type="submit" value="Submit" />
