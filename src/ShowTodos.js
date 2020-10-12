@@ -30,9 +30,8 @@ class ShowTodos extends React.Component {
     console.log(this.state.forid);
     fetch(`https://guarded-taiga-87327.herokuapp.com/todo/${arg}`, {
             method: 'DELETE',
-            headers: {'Content-Type': 'application/json'}
+            headers: {'Content-Type': 'application/json',},
         })
-            .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
             });
