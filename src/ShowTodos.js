@@ -4,6 +4,7 @@ import { Button } from 'antd';
 
 class ShowTodos extends React.Component {
   constructor(props) {
+    console.log('props ye h:', props)
     super(props);
     this.state = { todos: [''], isFetchComplete: false, updateRequest: false, deleteRequest: false, forid: -1, todoMessage: '', todotitle: '' };
   }
@@ -15,7 +16,7 @@ class ShowTodos extends React.Component {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'x-access-token': this.props.accessToken
+        'x-access-token': this.props.location.state.accessToken
       }
     })
       .then(response => response.json())

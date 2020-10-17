@@ -8,37 +8,24 @@ import {
 } from "react-router-dom";
 import UsersSignup from './UsersSignup';
 import UsersLogin from './UsersLogin'
-import Home from './Home'
+import Root from './Root'
+import ShowTodos from './ShowTodos';
 
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-          </ul>
-        </nav>
         <Switch>
-          <Route path="/login">
+          <Route exact path="/login">
             <UsersLogin />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <UsersSignup />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route exact path="/">
+            <Root />
           </Route>
+          <Route exact path="/home" render={(props) => <ShowTodos {...props} />} />
         </Switch>
-      </div>
     </Router>
   );
 }

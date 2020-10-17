@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button } from 'antd';
-import ShowTodos from './ShowTodos';
+import {
+  Redirect,
+} from "react-router-dom";
 
 class UsersLogin extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { userName: '', password: '', isLogin: false, accessToken: '' };
+    this.state = { userName: 'mukul', password: 'mukul', isLogin: false, accessToken: '' };
     this.handleChangeuserName = this.handleChangeuserName.bind(this);
     this.handleChangepassword = this.handleChangepassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,12 +31,13 @@ class UsersLogin extends React.Component {
   }
   render() {
     if (this.state.isLogin) {
-      return (
-        <div>
-          <h2>`Welcome ${this.state.userName}`</h2>
-          <ShowTodos accessToken={this.state.accessToken} />
-        </div>
-      )
+      console.log('redirecting with token:', this.state.accessToken)
+      return <Redirect
+        to={{
+          pathname: "/home",
+          state: { accessToken: this.state.accessToken }
+        }}
+      />
     }
     return (
       <div className="Login">
