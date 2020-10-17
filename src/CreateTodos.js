@@ -24,7 +24,6 @@ class CreateTodos extends React.Component {
         console.log(this.state)
         event.preventDefault();
         fetch('https://guarded-taiga-87327.herokuapp.com/todo', {
-
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

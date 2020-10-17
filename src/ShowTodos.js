@@ -11,7 +11,13 @@ class ShowTodos extends React.Component {
   fetchData = () => {
     this.setState({ todos: 'Fetching', isFetchComplete: false });
     console.log('blahblah')
-    fetch('https://guarded-taiga-87327.herokuapp.com/todo')
+    fetch('http://localhost:5000/todo', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': this.props.accessToken
+      }
+    })
       .then(response => response.json())
       .then(data => { console.log(data); this.setState({ todos: data, isFetchComplete: true }) })
       .catch(err => { this.setState({ todos: 'Failed' }) });
