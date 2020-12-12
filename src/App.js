@@ -14,18 +14,19 @@ import ShowTodos from './ShowTodos';
 function App() {
   return (
     <Router>
-        <Switch>
-          <Route exact path="/login">
-            <UsersLogin />
-          </Route>
-          <Route exact path="/signup">
-            <UsersSignup />
-          </Route>
-          <Route exact path="/">
-            <Root />
-          </Route>
-          <Route exact path="/home" render={(props) => <ShowTodos {...props} />} />
-        </Switch>
+      <Switch>
+        <Route exact path="/login">
+          <UsersLogin />
+        </Route>
+        <Route exact path="/signup">
+          <UsersSignup />
+        </Route>
+        <Route exact path="/">
+          <Root />
+        </Route>
+        <Route exact path="/home" render={(props) => <ShowTodos {...props} />} />
+        <Route exact path="/logout" render={() => { localStorage.removeItem("user"); return <UsersLogin /> }} />
+      </Switch>
     </Router>
   );
 }
